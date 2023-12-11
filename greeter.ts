@@ -13,12 +13,19 @@ Classes:
 Interfaces are used to declare object without code while classes do both
 */
 
-function greeter(person: string){
-    return "Hello, " + person; 
+interface Person{
+    firstName: string,
+    lastName: string
 }
 
-let user = "Jane User";
+function greeter(person: Person){
+    return "Hello, " + person.firstName + " " + person.lastName; 
+}
 
-let notUser = [0,1,2];
+// let user = "Jane User";
+
+// let notUser = [0,1,2];
+
+let user = {firstName: "Jane", lastName: "User"}
 // changing the call passed in will result in a error due to type annotation to record intended contract
 document.body.textContent = greeter(user);
