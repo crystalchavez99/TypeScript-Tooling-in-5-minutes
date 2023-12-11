@@ -13,6 +13,18 @@ Classes:
 Interfaces are used to declare object without code while classes do both
 */
 
+class Student{
+    fullName: string;
+    // public auto create properties with that name
+    constructor(
+        public firstName: string,
+        public middleInitial: string,
+        public lastName: string
+    ){
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+};
+
 interface Person{
     firstName: string,
     lastName: string
@@ -20,12 +32,14 @@ interface Person{
 
 function greeter(person: Person){
     return "Hello, " + person.firstName + " " + person.lastName; 
-}
+};
 
 // let user = "Jane User";
 
 // let notUser = [0,1,2];
 
-let user = {firstName: "Jane", lastName: "User"}
+//let user = {firstName: "Jane", lastName: "User"}
+
+let user = new Student("Jane", "M", "User");
 // changing the call passed in will result in a error due to type annotation to record intended contract
 document.body.textContent = greeter(user);
